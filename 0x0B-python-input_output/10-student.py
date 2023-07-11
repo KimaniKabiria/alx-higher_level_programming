@@ -32,13 +32,3 @@ class Student:
 		for k in sorted(self.__dict__.keys()):
 			new_dict[k] = self.__dict__[k]
 		return new_dict
-	
-	def reload_from_json(self, json):
-		""" Method that replaces all
-		attributes of the student instance
-		
-		Args:
-			json (JSON): json object
-		"""
-		for k, v in json.items():
-			setattr(self, k, v)
