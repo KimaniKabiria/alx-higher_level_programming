@@ -1,3 +1,7 @@
 #!/bin/bash
-# Take in URL, display body of a 200 response; Usage: ./1-body.sh 5B0.0.0.0:5000/route_1 ; echo ""
-curl -sL "$1"
+# Display only body of a 200 status code response
+VAR=$(curl -so /dev/null -I -w "%{http_code}" "$1");
+
+if [ "$VAR" == 200 ]; then
+    curl -sL "$1"
+fi
